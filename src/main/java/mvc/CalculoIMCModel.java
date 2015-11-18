@@ -33,15 +33,15 @@ public class CalculoIMCModel {
 	public void calculaIMC(Double peso, Double altura){
 		this.imc = peso / (altura * altura);
 	}
-	public void mostraResultado(Double imc){
+	public void mostrarResultado(){
 		if (imc < 18.5){
-			resultado="Aff, corre para o Mc Donalds! Ta magro demais";
+			resultado="Magro";
 		}
 		else if (imc >= 18.5 && imc <=25) {
-			resultado="Tá delícia! Shape adequado";
+			resultado="Normal";
 		}
 		else{
-			resultado="Tá fininho hein?! balão! Bora pra esteira";
+			resultado="Acima do peso";
 		}
 	}
 }

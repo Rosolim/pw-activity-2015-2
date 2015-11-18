@@ -1,3 +1,5 @@
+<%@page import="mvc.CalculoIMCModel"%>
+<%@page import="mvc.CalculoIMCController"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,43 +32,48 @@
 							<form>
 								<div class="form-group">
 									<input class="form-control" placeholder="Altura" name="altura"
-										type="text">
+										type="text" value="${param.altura}">
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Peso" name="peso"
-										type="text">
+										type="text" value="${param.peso}">
 								</div>
-								<input class="btn btn-sm btn-success" type="submit"> <a
-									href="indMasCorp.jsp">Zerar</a>
+								<div>
+									<input class="btn btn-sm btn-success" type="submit">
+								</div>
+								<br>
 							</form>
 						</fieldset>
 
 						<%
-							String peso = request.getParameter("peso");
-							peso = peso == null ? "" : peso;
-							String altura = request.getParameter("altura");
-							altura = altura == null ? "" : altura;
-							Double calPeso = 0.0;
-							Double calAltura = 0.0;
-							if (altura != "" || peso != "") {
-								calPeso = Double.parseDouble(peso);
-								calAltura = Double.parseDouble(altura);
-							}
-							Double result = 0.0;
-							if (calAltura == 0.0 || calPeso == 0.0) {
-								out.print("<br> <h3>Insira as informações</h3>");
-							} else
-								result = calPeso / (calAltura * calAltura);
-							String text = "";
-							if (result < 18.5 && result > 0.0) {
-								text = "<br> <div class='alert alert-warning'>" + result + "<br><strong> Aff, corre para o Mc Donalds!</strong> Mosss que magreza é essa?</div>";
-								out.print(text);
-							} else if (result >= 18.5 && result <= 25) {
-								text = "<br> <div class='alert alert-success'>" + result + "<br><strong> Tá delícia!</strong> Shape adequado</div>";
-								out.print(text);
-							} else if (result > 25 && result != 0.0) {
-								text = "<br> <div class='alert alert-danger'>" + result + "<br><strong> Tá fininho hein?! balão!</strong> Bora pra esteira</div>";
-								out.print(text);
+							CalculoIMCModel calcImc = (CalculoIMCModel) request
+									.getAttribute("imc");
+
+							if (calcImc.getPeso() == 0 && calcImc.getAltura() == 0) {
+						%>
+						<div class='alert alert-info'>
+							<strong> Por favor, insira os valores nos campos acima!</strong>
+						</div>
+						<%
+							} else if (calcImc.getResultado().equals("Magro")) {
+						%>
+						<div class='alert alert-warning'>
+							${param.imc}<br> <strong> Aff, corre para o Mc Donalds!</strong> Mosss que magreza
+							é essa?
+						</div>
+						<%
+							} else if (calcImc.getResultado().equals("Normal")) {
+						%>
+						<div class='alert alert-success'>
+							${param.imc}<strong> Tá delícia!</strong> Shape adequado
+						</div>
+						<%
+							} else if (calcImc.getResultado().equals("Acima do peso")) {
+						%>
+						<div class='alert alert-danger'>
+							${param.imc}<strong> Tá fininho hein?! balão!</strong> Bora pra esteira
+						</div>
+						<%
 							}
 						%>
 					</div>

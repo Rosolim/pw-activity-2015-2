@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Índice de Massa Corporal</title>
+<title>IMC</title>
 <!-- Bootstrap -->
 
 <link

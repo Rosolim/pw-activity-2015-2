@@ -23,6 +23,12 @@ public class CalculoIMCController extends HttpServlet{
 		CalculoIMCModel imcmod = new CalculoIMCModel();
 				imcmod.setPeso(peso);
 				imcmod.setAltura(altura);
+				imcmod.calculaIMC(peso, altura);
+				imcmod.mostrarResultado();
 				
+		req.setAttribute("imc", imcmod);
+		
+		 //Chamar o JSP apenas para mostrar o resultado.
+	    req.getRequestDispatcher("mvcIMC.jsp").forward(req, resp);
 	}
 }
