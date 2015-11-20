@@ -46,32 +46,33 @@
 						</fieldset>
 
 						<%
-							CalculoIMCModel calcImc = (CalculoIMCModel) request
-									.getAttribute("imc");
+							CalculoIMCModel calcImc = (CalculoIMCModel) request.getAttribute("imc");
 
 							if (calcImc.getPeso() == 0 && calcImc.getAltura() == 0) {
 						%>
 						<div class='alert alert-info'>
-							<strong> Por favor, insira os valores nos campos acima!</strong>
+							<strong> Por favor, insira os valores nos
+								campos acima!</strong>
 						</div>
 						<%
 							} else if (calcImc.getResultado().equals("Magro")) {
 						%>
 						<div class='alert alert-warning'>
-							${param.imc}<br> <strong> Aff, corre para o Mc Donalds!</strong> Mosss que magreza
-							é essa?
+							${imc.imc}<br> <strong> Aff, corre para o Mc
+								Donalds!</strong> Mosss que magreza é essa?
 						</div>
 						<%
 							} else if (calcImc.getResultado().equals("Normal")) {
 						%>
 						<div class='alert alert-success'>
-							${param.imc}<strong> Tá delícia!</strong> Shape adequado
+							${imc.imc}<strong> Tá delícia!</strong> Shape adequado
 						</div>
 						<%
 							} else if (calcImc.getResultado().equals("Acima do peso")) {
 						%>
 						<div class='alert alert-danger'>
-							${param.imc}<strong> Tá fininho hein?! balão!</strong> Bora pra esteira
+							${imc.imc}<strong> Tá fininho hein?! balão!</strong> Bora pra
+							esteira
 						</div>
 						<%
 							}

@@ -49,14 +49,14 @@
 							if (comb.getResultado().equals("alcool")) {
 						%>
 						<div class='alert alert-info'>
-							Você deve abastecer com <strong> Álcool </strong>
+							${param.resultado}Você deve abastecer com <strong> Álcool </strong>
 						</div>
 
 						<%
 							} else {
 						%>
 						<div class='alert alert-danger'>
-							Você deve abastecer com <strong> Gasolina </strong>
+							${param.resultado}Você deve abastecer com <strong> Gasolina </strong>
 						</div>
 						<%
 							}
