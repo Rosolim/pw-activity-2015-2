@@ -13,5 +13,6 @@
     <a href="http://localhost:9090/activity-2015-2/combustivel"> Calculadora de combustível em MVC</a> <br>
     <a href="http://localhost:9090/activity-2015-2/imc"> Calculadora de IMC em MVC</a> <br>
     <a href="http://localhost:9090/activity-2015-2/indMasCorp.jsp"> Calculadora de IMC</a> <br>
+    <a href="http://localhost:9090/activity-2015-2/sorteio.jsp"> Sorteio </a> <br>
   </body>
 </html>
